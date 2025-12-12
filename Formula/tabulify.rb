@@ -1,4 +1,4 @@
-class TabulifyEarlyAccess < Formula
+class Tabulify < Formula
   desc "Tabulify CLI application"
   homepage "https://www.tabulify.com"
   url "https://github.com/tabulify/tabulify/releases/download/v2.0.0/tabulify-2.0.0-nojre.zip"
@@ -6,9 +6,10 @@ class TabulifyEarlyAccess < Formula
   sha256 "21fd98fc673b6203f87280a48d7fcc73dbf2564379e54fb4551f8cffe9c75383"
   license "Functional Source License (FSL)"
 
+  head "https://github.com/tabulify/tabulify.git", branch: "main"
 
   
-  depends_on "temurin@17"
+  depends_on "openjdk@17"
 
   def install
 
