@@ -3,7 +3,7 @@ class Tabulify < Formula
   homepage "https://www.tabulify.com"
   url "https://github.com/tabulify/tabulify/releases/download/v2.0.0/tabulify-2.0.0-nojre.zip"
   version "2.0.0"
-  sha256 "21fd98fc673b6203f87280a48d7fcc73dbf2564379e54fb4551f8cffe9c75383"
+  sha256 "8d865ec086e6833ba4fff1e57cd0b00333827267455f842d4b4650e08fded2a5"
   license "Functional Source License (FSL)"
 
   head "https://github.com/tabulify/tabulify.git", branch: "main"
@@ -38,8 +38,8 @@ class Tabulify < Formula
         next unless script.file?
         original = File.read(script)
         modified = original.sub(
-            /^#!\/usr\/bin\/env bash/,
-            "#!/usr/bin/env bash\nJAVA_HOME=\"#{Formula["openjdk@17"].opt_prefix}\""
+            /^#!\/usr\/bin\/env sh/,
+            "#!/usr/bin/env sh\nJAVA_HOME=\"#{Formula["openjdk@17"].opt_prefix}\""
         )
         File.write(script, modified)
     end
