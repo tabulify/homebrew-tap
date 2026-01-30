@@ -1,12 +1,12 @@
 class Tabulify < Formula
   desc "Tabulify CLI application"
   homepage "https://www.tabulify.com"
-  url "https://github.com/tabulify/tabulify/releases/download/v2.0.0/tabulify-2.0.0-nojre.zip"
-  version "2.0.0"
-  sha256 "8d865ec086e6833ba4fff1e57cd0b00333827267455f842d4b4650e08fded2a5"
+  url "https://github.com/tabulify/tabulify/releases/download/v2.0.1/tabulify-2.0.1-nojre.zip"
+  version "2.0.1"
+  sha256 "055280ece24b0a321cf8343dc08a3e2726e62364b1678bb3b9db5b67054daf48"
   license "Functional Source License (FSL)"
-
   head "https://github.com/tabulify/tabulify.git", branch: "main"
+
 
   
   depends_on "openjdk@17"
@@ -38,8 +38,8 @@ class Tabulify < Formula
         next unless script.file?
         original = File.read(script)
         modified = original.sub(
-            /^#!\/usr\/bin\/env sh/,
-            "#!/usr/bin/env sh\nJAVA_HOME=\"#{Formula["openjdk@17"].opt_prefix}\""
+            /^#!\/usr\/bin\/env bash/,
+            "#!/usr/bin/env bash\nJAVA_HOME=\"#{Formula["openjdk@17"].opt_prefix}\""
         )
         File.write(script, modified)
     end
@@ -70,7 +70,7 @@ class Tabulify < Formula
     # executables being tested: `system bin/"program", "do", "something"`.
 
     output = shell_output("#{bin}/tabul --version")
-    assert_match "2.0.0", output
+    assert_match "2.0.1", output
 
   end
 
